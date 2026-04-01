@@ -58,9 +58,9 @@ if st.button("🚀 맞춤형 코드 생성 시작", type="primary", use_containe
     else:
         with st.spinner("학교 문법을 분석하여 템플릿에 맞게 코드를 작성 중입니다..."):
             
-            # 데이터 구조 파악 (전체 데이터 대신 컬럼명과 상위 3줄만 AI에게 전달하여 효율성 높임)
+            # 데이터 구조 파악 (에러가 나던 to_markdown()을 to_string()으로 변경)
             df = pd.read_csv(uploaded_file)
-            data_info = f"- 데이터 컬럼명: {list(df.columns)}\n- 샘플 데이터 (상위 3줄):\n{df.head(3).to_markdown()}"
+            data_info = f"- 데이터 컬럼명: {list(df.columns)}\n- 샘플 데이터 (상위 3줄):\n{df.head(3).to_string()}"
             
             # 4. 핵심 시스템 프롬프트 (AI 행동 통제)
             system_prompt = f"""
