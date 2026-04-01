@@ -6,7 +6,9 @@ import os
 
 # 1. API 키 설정 (Streamlit Secrets에서 가져옴)
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-pro') # 코딩 특화 Pro 모델 사용
+
+# 404 에러 방지를 위해 버전을 명확히 명시한 pro 모델 사용
+model = genai.GenerativeModel('gemini-1.5-pro-latest') 
 
 # 2. IPYNB 파일에서 코드(문법)만 추출하는 함수
 def extract_code_from_ipynb(folder_path):
